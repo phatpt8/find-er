@@ -29,7 +29,7 @@ function prodPlugins(commonPlugins) {
             }
         }),
         new webpack.optimize.AggressiveMergingPlugin(),
-        new webpack.NoErrorsPlugin()
+        new webpack.NoEmitOnErrorsPlugin()
     ])
 }
 
