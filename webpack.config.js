@@ -13,7 +13,7 @@ const indexPath = sourcePath + '/index';
 
 function getEntries(entries) {
     return env === 'production' ? entries : entries.concat([
-        'webpack-dev-server/client?http://localhost:8080',
+        'webpack-dev-server/client?http://0.0.0.0:8080',
         'webpack/hot/only-dev-server'
     ]);
 }
