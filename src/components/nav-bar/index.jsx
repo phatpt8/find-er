@@ -13,9 +13,15 @@ export default class NavBar extends Component {
     render() {
         return (
             <div className="container _nav-container">
+                <div className="container _nav-burger-menu">
+
+                </div>
                 <a href="#">
                     <div className="container _nav-icon"/>
                 </a>
+                <div className="container _nav-personalize">
+
+                </div>
             </div>
         )
     }

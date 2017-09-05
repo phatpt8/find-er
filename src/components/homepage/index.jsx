@@ -36,7 +36,7 @@ export default class Homepage extends Component {
     render() {
         return (
             <div className="homepage _block">
-
+                <img src="../../public/img/kid-dance.gif"/>
             </div>
         )
     }

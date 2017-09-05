@@ -3,7 +3,7 @@ const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ProgressBarPlugin = require('progress-bar-webpack-plugin');
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+// const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const env = process.env.NODE_ENV || 'development';
 const publicPath = process.env.PUBLIC_PATH || "/";
 const isDev = env !== 'production';
@@ -90,7 +90,7 @@ module.exports = {
             })
         }, {
             test: /\.svg$/,
-            use: 'svg-sprite-loader'
+            use: 'svg-url-loader'
         }, {
             test: /\.woff2$/,
             use: [{
