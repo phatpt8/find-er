@@ -30,9 +30,88 @@
   &._nav-personalize {
 
   }
+  &._nav-animate-lines {
+    top: 0;
+    left: 0;
+    width: 300px;
+    height: 300px;
+    contain: strict;
+    position: absolute;
+    transform: rotate(144deg) scale(0.8);
+    transform-origin: 56% 40%;
+  }
+  &._nav-line {
+    position: relative;
+    overflow: hidden;
+    transform-origin: left;
+    animation-iteration-count: infinite;
+    animation-timing-function: cubic-bezier(0.9, 0.01, 0.82, 0.5);
+    &:before {
+      height: 9px;
+      content: '';
+      display: block;
+      transform-origin: right;
+      animation-iteration-count: infinite;
+      animation-timing-function: cubic-bezier(0.89, 0.01, 0.15, 1);
+    }
+  }
+  &._nav-line-a {
+    top: 250px;
+    left: 0;
+    animation-name: l-a;
+    animation-delay: -1050ms;
+    animation-duration: 5s;
+    width: 150px;
+    &:before {
+      animation-name: l-a-b;
+      background: linear-gradient(to left, #FFF, #0389ff, #0dd3ff);
+    }
+  }
+  &._nav-line-b {
+    top: 230px;
+    left: 30px;
+    animation-name: l-b;
+    animation-delay: -2050ms;
+    animation-duration: 5s;
+    width: 150px;
+    &:before {
+      animation-name: l-a-b;
+      background: linear-gradient(to left, #FFF, #0389ff, #0dd3ff);
+    }
+  }
+  &._nav-line-c {
+    top: 200px;
+    left: 15px;
+    animation-name: l-a;
+    animation-delay: -3050ms;
+    animation-duration: 5s;
+    width: 100px;
+    &:before {
+      animation-name: l-a-b;
+      background: linear-gradient(to left, #FFF, #0389ff, #0dd3ff);
+    }
+  }
 
   &._main {
     margin-top: 58px;
     background: #FAFAFA;
   }
+}
+
+@keyframes l-a-b{
+  0%{transform:scaleX(0)}
+  13.53965%{transform:scaleX(1)}
+  100%{transform:scaleX(1)}
+}
+@keyframes l-a{
+  0%{transform:scale3d(1, 1, 1)}
+  13.53965%{transform:scale3d(1, 1, 1)}
+  32.88201%{transform:scale3d(0, 1, 1)}
+  100%{transform:scale3d(0, 1, 1)}
+}
+@keyframes l-b{
+  0%{transform:scale3d(1, 1, 1)}
+  5.22244%{transform:scale3d(1, 1, 1)}
+  9.47776%{transform:scale3d(0, 1, 1)}
+  100%{transform:scale3d(0, 1, 1)}
 }

@@ -19,6 +19,13 @@ export default class NavBar extends Component {
                 <a href="#">
                     <div className="container _nav-icon"/>
                 </a>
+                <div className="container _nav-animate-lines">
+                    <div className="container _nav-line-pos">
+                        <div className="container _nav-line _nav-line-a"/>
+                        <div className="container _nav-line _nav-line-b"/>
+                        <div className="container _nav-line _nav-line-c"/>
+                    </div>
+                </div>
                 <div className="container _nav-personalize">
 
                 </div>
