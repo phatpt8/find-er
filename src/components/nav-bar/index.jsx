@@ -26,8 +26,13 @@ export default class NavBar extends Component {
                         <div className="container _nav-line _nav-line-c"/>
                     </div>
                 </div>
-                <div className="container _nav-personalize">
+                <div className="container _nav-search-container">
 
+                </div>
+                <div className="container _nav-personalize">
+                    <div className="btn _nav-btn">
+                        <a className="btn _a" href="/about-me">About me</a>
+                    </div>
                 </div>
             </div>
         )
