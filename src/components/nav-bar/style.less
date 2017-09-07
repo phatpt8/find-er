@@ -10,8 +10,13 @@
     height: 56px;
     display: flex;
     padding: 0 16px;
+    overflow: hidden;
+    position: relative;
     box-shadow: 0 2px #DADADA;
     justify-content: flex-start;
+  }
+  &._nav-icon-wrapper {
+    z-index: 2;
   }
   &._nav-icon {
     width: 50px;
@@ -35,11 +40,11 @@
     top: 0;
     left: 0;
     width: 300px;
-    height: 300px;
+    height: 150px;
     contain: strict;
     position: absolute;
     transform: rotate(144deg) scale(0.8);
-    transform-origin: 56% 40%;
+    transform-origin: 50% 40%;
   }
   &._nav-line {
     position: relative;
@@ -57,7 +62,7 @@
     }
   }
   &._nav-line-a {
-    top: 250px;
+    top: 100px;
     left: 0;
     animation-name: l-a;
     animation-delay: -1050ms;
@@ -69,7 +74,7 @@
     }
   }
   &._nav-line-b {
-    top: 230px;
+    top: 80px;
     left: 30px;
     animation-name: l-b;
     animation-delay: -2050ms;
@@ -81,7 +86,7 @@
     }
   }
   &._nav-line-c {
-    top: 200px;
+    top: 50px;
     left: 15px;
     animation-name: l-a;
     animation-delay: -3050ms;

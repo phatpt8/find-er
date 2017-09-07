@@ -13,10 +13,8 @@ export default class NavBar extends Component {
     render() {
         return (
             <div className="container _nav-container">
-                <div className="container _nav-burger-menu">
-
-                </div>
-                <a href="#">
+                <div className="container _nav-burger-menu"/>
+                <a className="container _nav-icon-wrapper" href="#">
                     <div className="container _nav-icon"/>
                 </a>
                 <div className="container _nav-animate-lines">
@@ -30,6 +28,12 @@ export default class NavBar extends Component {
 
                 </div>
                 <div className="container _nav-personalize">
+                    <div className="btn _nav-btn">
+                        <a className="btn _a" href="/about-them">About them</a>
+                    </div>
+                    <div className="btn _nav-btn">
+                        <a className="btn _a" href="/about-her">About her</a>
+                    </div>
                     <div className="btn _nav-btn">
                         <a className="btn _a" href="/about-me">About me</a>
                     </div>
