@@ -7,22 +7,6 @@ import {
 import AsyncComponent from './AsyncComponent';
 import NavBar from './components/nav-bar/index';
 
-const loader = () => {
-    return new Promise(resolve => {
-        require.ensure([], () => {
-            resolve(require('./components/homepage/index'));
-        });
-    });
-};
-
-const logout = () => {
-    return new Promise(resolve => {
-        require.ensure([], () => {
-            resolve(require('./components/logout/index'));
-        });
-    })
-};
-
 const asyncLoader = (p) => () => (
     new Promise(resolve => {
         require.ensure([], () => {

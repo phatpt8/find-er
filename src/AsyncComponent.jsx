@@ -28,6 +28,16 @@ export default class AsyncComponent extends Component {
             return <Component {...this.props} />;
         }
 
-        return <div/>; // loading wheel
+        return (
+            <div className="spinner-wrapper">
+                <div className="spinner">
+                    <div className="rect1"/>
+                    <div className="rect2"/>
+                    <div className="rect3"/>
+                    <div className="rect4"/>
+                    <div className="rect5"/>
+                </div>
+            </div>
+        );
     }
 }
