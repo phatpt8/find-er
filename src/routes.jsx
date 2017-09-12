@@ -7,13 +7,19 @@ import {
 import AsyncComponent from './AsyncComponent';
 import NavBar from './components/nav-bar/index';
 
-const asyncLoader = (p) => () => (
-    new Promise(resolve => {
-        require.ensure([], () => {
-            resolve(import(`./components/${p}/index`));
+const Component = (name) => () => {
+    const asyncLoader = () => () => (
+        new Promise(resolve => {
+            require.ensure([], () => {
+                resolve(import(`./components/${name}/index`));
+            })
         })
-    })
-);
+    );
+
+    return (
+        <AsyncComponent loader={asyncLoader()} />
+    )
+};
 
 export default () => (
     <BrowserRouter>
@@ -26,10 +32,13 @@ export default () => (
                     <Route
                         exact
                         path="/"
-                        component={() => <AsyncComponent loader={asyncLoader('homepage')} />}/>
+                        component={Component('homepage')} />}/>
                     <Route
                         path="/logout"
-                        component={() => <AsyncComponent loader={asyncLoader('logout')} />}/>
+                        component={Component('logout')}/>
+                    <Route
+                        path="/theme"
+                        component={Component('theme')}/>
                 </Switch>
             </div>
         </div>

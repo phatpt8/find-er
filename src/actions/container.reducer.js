@@ -1,13 +1,13 @@
 export const START_CONTAINER = 'START_CONTAINER';
-export const initialStates = {
+export const initialState = {
     loaded: false
 };
 
-export default (state = initialStates, action) => {
+export default (state = initialState, action) => {
     switch (action.type) {
         case START_CONTAINER:
-            return { loaded:true };
+            return { loaded: true };
         default:
-            return initialStates;
+            return state;
     }
 }

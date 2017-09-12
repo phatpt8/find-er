@@ -1,20 +1,15 @@
+require('./style.less');
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { START_CONTAINER } from "actions/container.reducer";
 
-function mapStateToProps(state, ownProps) {
-    return {
+const mapStateToPropsBinding = (state, ownProps) => ({});
 
-    }
-}
+const dispatchToPropsBinding = (dispatch, ownProps) => ({
+    init: () => dispatch({ type: START_CONTAINER })
+});
 
-function dispatchToPropsBinding(dispatch, ownProps) {
-    return {
-        init: () => dispatch({type: 'START_CONTAINER'})
-    }
-}
-
-require('./style.less');
-@connect(mapStateToProps, dispatchToPropsBinding)
+@connect(null, dispatchToPropsBinding)
 export default class Homepage extends Component {
     static PropTypes = {};
     static DefaultTypes = {};
@@ -22,11 +17,6 @@ export default class Homepage extends Component {
     constructor(props) {
         super(props);
         this.state = {};
-        this.toLogout = this.toLogout.bind(this);
-    }
-
-    toLogout() {
-
     }
 
     componentDidMount() {

@@ -1,6 +1,13 @@
-import React, {Component} from 'react';
-
 require('./style.less');
+import React, {Component} from 'react';
+import {connect} from 'react-redux';
+import classNames from 'classnames';
+
+const mapStateToPropsBinding = (state, props) => ({
+    theme: state.theme.themes
+});
+
+@connect(mapStateToPropsBinding, null)
 export default class NavBar extends Component {
     static PropTypes = {};
     static DefaultTypes = {};
@@ -11,10 +18,15 @@ export default class NavBar extends Component {
     }
 
     render() {
+        const _theme = '-' + this.props.theme.toLowerCase();
+
         return (
-            <div className="container _nav-container">
+            <div className={classNames(
+                'container _nav-container',
+                _theme
+            )}>
                 <div className="container _nav-burger-menu"/>
-                <a className="container _nav-icon-wrapper" href="#">
+                <a className="container _nav-icon-wrapper" href="/">
                     <div className="container _nav-icon"/>
                 </a>
                 <div className="container _nav-animate-lines">
@@ -29,13 +41,10 @@ export default class NavBar extends Component {
                 </div>
                 <div className="container _nav-personalize">
                     <div className="btn _nav-btn">
-                        <a className="btn _a" href="/about-them">About them</a>
-                    </div>
-                    <div className="btn _nav-btn">
-                        <a className="btn _a" href="/about-her">About her</a>
-                    </div>
-                    <div className="btn _nav-btn">
                         <a className="btn _a" href="/about-me">About me</a>
+                    </div>
+                    <div className="btn _nav-btn">
+                        <a className="btn _a" href="/theme">No theme</a>
                     </div>
                 </div>
             </div>

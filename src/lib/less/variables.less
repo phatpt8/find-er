@@ -11,3 +11,16 @@ sans-serif;
 @fontDesktopBold: "Helvetica Bold", "HelveticaNeue-Bold",
 "Helvetica Neue Bold", "Helvetica Neue", Helvetica,
 Arial, "Lucida Grande", sans-serif;
+@desktopMinWidth: 1025px;
+@mobileMaxWidth: 1024px;
+
+
+html {
+  @media (min-width: @desktopMinWidth) {
+    font-family: @fontDesktopRegular;
+  }
+
+  @media (max-width: @mobileMaxWidth) {
+    font-family: @fontMobileRegular;
+  }
+}
