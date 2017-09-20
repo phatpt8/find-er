@@ -39,14 +39,14 @@ export default class DayNight extends Component {
 
     render() {
         return (
-            <div id="fullpage">
+            <div className="daynight _block">
                 <div className={classNames(
-                    'section',
+                    'daynight _section',
                     {
-                        'night': this.state.theme === THEME_NIGHT
+                        '-night': this.state.theme === THEME_NIGHT
                     }
                 )}>
-                    <div className="time-circle">
+                    <div className="daynight _time-circle">
                         <div className="sun"/>
                         <div className="moon">
                             <div/>
@@ -64,13 +64,14 @@ export default class DayNight extends Component {
                         </div>
                         <div className="water"/>
                     </div>
-                    <div
-                        id="switch"
-                        className={classNames({
-                            'switched': this.state.theme === THEME_NIGHT
-                        })}
+                    <div className={classNames(
+                        'daynight _switch',
+                        {
+                            '-switched': this.state.theme === THEME_NIGHT
+                        }
+                    )}
                         onClick={::this.onSwitchClick}>
-                        <div id="circle"/>
+                        <div className="daynight _circle"/>
                     </div>
                 </div>
             </div>
