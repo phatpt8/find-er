@@ -2,6 +2,7 @@ require('./style.less');
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { START_CONTAINER } from "actions/container.reducer";
+import SlotMachine from 'components/slot-machine/index';
 
 const mapStateToPropsBinding = (state, ownProps) => ({});
 
@@ -26,7 +27,7 @@ export default class Homepage extends Component {
     render() {
         return (
             <div className="homepage _block">
-
+                <SlotMachine />
             </div>
         )
     }

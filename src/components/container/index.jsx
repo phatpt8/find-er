@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
-import {connect} from 'react-redux';
-import classNames from 'classnames';
+// import {connect} from 'react-redux';
+// import classNames from 'classnames';
 import {
     Switch,
     Route
@@ -22,9 +22,11 @@ const AComponent = (name) => () => {
     )
 };
 
-const stateToPropsBinding = (state, props) => ({});
-const dispatchToPropsBinding = (dispatch, ownPros) => ({});
-@connect(null, null)
+// const stateToPropsBinding = (state, props) => ({
+//     theme: state.theme.themes
+// });
+// const dispatchToPropsBinding = (dispatch, ownPros) => ({});
+// @connect(nulstateToPropsBindingl, null)
 export default class Container extends Component {
     static PropTypes = {};
     static DefaultTypes = {};
@@ -35,6 +37,7 @@ export default class Container extends Component {
     }
 
     render() {
+        // const _theme = this.props.theme.toLowerCase();
 
         return (
             <div className="container _block">

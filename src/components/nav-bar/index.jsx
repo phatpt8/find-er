@@ -29,6 +29,7 @@ export default class NavBar extends Component {
                 <a className="container _nav-icon-wrapper" href="/">
                     <div className="container _nav-icon"/>
                 </a>
+                {false &&
                 <div className="container _nav-animate-lines">
                     <div className="container _nav-line-pos">
                         <div className="container _nav-line _nav-line-a"/>
@@ -36,12 +37,13 @@ export default class NavBar extends Component {
                         <div className="container _nav-line _nav-line-c"/>
                     </div>
                 </div>
+                }
                 <div className="container _nav-search-container">
 
                 </div>
                 <div className="container _nav-personalize">
                     <div className="btn _nav-btn">
-                        <a className="btn _a" href="/theme">No theme</a>
+                        <a className="btn _a" href="/theme">Theme</a>
                     </div>
                 </div>
             </div>
