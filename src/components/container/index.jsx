@@ -1,12 +1,11 @@
 import React, {Component} from 'react';
-// import {connect} from 'react-redux';
-// import classNames from 'classnames';
 import {
     Switch,
     Route
 } from 'react-router-dom';
 import AsyncComponent from '../../AsyncComponent';
 import NavBar from '../nav-bar/index';
+import PushNotify from '../push-notify/index';
 
 const AComponent = (name) => () => {
     const asyncLoader = () => () => (
@@ -22,17 +21,12 @@ const AComponent = (name) => () => {
     )
 };
 
-// const stateToPropsBinding = (state, props) => ({
-//     theme: state.theme.themes
-// });
-// const dispatchToPropsBinding = (dispatch, ownPros) => ({});
-// @connect(nulstateToPropsBindingl, null)
 export default class Container extends Component {
     static PropTypes = {};
     static DefaultTypes = {};
 
-    constructor(props) {
-        super(props);
+    constructor(props, context) {
+        super(props, context);
         this.state = {}
     }
 
@@ -58,6 +52,7 @@ export default class Container extends Component {
                             component={AComponent('theme')}/>
                     </Switch>
                 </div>
+                <PushNotify />
             </div>
         )
     }

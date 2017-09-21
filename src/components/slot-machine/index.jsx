@@ -28,27 +28,41 @@ export default class SlotMachine extends Component {
             s2: this.slotDefaultProps,
             s3: this.slotDefaultProps
         };
-        this.imgHeight = 1374;
         this.posArr = [
-            0, //orange
-            80, //number 7
-            165, //bar
-            237, //guava
-            310, //banana
-            378, //cherry
-            454, //orange
-            539, //number 7
-            624, //bar
-            696, //guava
-            769, //banana
-            837, //cherry
-            913, //orange
-            1000, //number 7
-            1085, //bar
-            1157, //guava
-            1230, //banana
-            1298 //cherry
+            15, //orange
+            98, //cherry
+            182, //banana
+            258, //prune
+            330, //bar
+            397, //seven
+            474, //orange
+            556, //cherry
+            642, //banana
+            715, //prune
+            790, //bar
+            858, //seven
+            858, //seven
+            858, //seven
+            858, //seven
+            858, //seven
+            858, //seven
+            858, //seven
+            858, //seven
+            858, //seven
+            858, //seven
+            858, //seven
+            858, //seven
+            858, //seven
+            858 //seven
         ];
+        this.mapPos = {
+            orange: [15, 474],
+            cherry: [98, 556],
+            banana: [182, 642],
+            prune:  [258, 715],
+            bar:    [330, 790],
+            seven:  [397, 858]
+        }
     }
 
     componentWillReceiveProps(nextState, nextProps) {
@@ -74,7 +88,7 @@ export default class SlotMachine extends Component {
             if (Math.abs(cnt) === count + 1) {
                 clearTimeout(this[fnSlotTimeout]);
                 el.style.animationDuration = '0s';
-                this[name].style.backgroundPosition = `0 -${bgPos - 6}px`;
+                this[name].style.backgroundPosition = `0 ${bgPos}px`;
                 this.setState({ [name]: this.slotDefaultProps }, () => cb(name, true));
                 return;
             }
@@ -92,7 +106,7 @@ export default class SlotMachine extends Component {
     startRolling() {
         const result = [];
         const randomCount = () => {
-            const c = [2, 3, 4, 5];
+            const c = [ 3, 3.5, 4, 4.5, 5, 6];
             return c[Math.floor(Math.random() * c.length)]
         };
         const status = {
@@ -109,22 +123,36 @@ export default class SlotMachine extends Component {
                 status.s2 &&
                 status.s3
             ) {
-                if (
-                    result.indexOf(80) > -1 &&
-                    result.indexOf(539) > -1 &&
-                    result.indexOf(1000) > -1
-                ) {
-                    resultMessage = "win";
-                } else {
-                    resultMessage = "lose";
+                const mapResult = {
+                    'seven,seven,seven': 'Amazing!'
+                };
+
+                resultMessage = mapResult[result.toString()];
+                if (!resultMessage) {
+                    resultMessage = 'Try again!'
                 }
                 this.setState({ resultMessage });
             }
         };
+        const mapResult = (pos) => {
+            const hasOwn = Object.prototype.hasOwnProperty;
+            for (let name in this.mapPos) {
+                if (hasOwn.call(this.mapPos, name)) {
+                    let arr = this.mapPos[name];
+                    if (arr.indexOf(pos) > -1) {
+                        return name;
+                    }
+                }
+            }
+            return ""
+        };
 
-        result.push(this.rollingSlot('s1', this.s1, randomCount(), checkComplete));
-        result.push(this.rollingSlot('s2', this.s1, randomCount(), checkComplete));
-        result.push(this.rollingSlot('s3', this.s1, randomCount(), checkComplete));
+        result.push(mapResult(
+            this.rollingSlot('s1', this.s1, randomCount(), checkComplete)));
+        result.push(mapResult(
+            this.rollingSlot('s2', this.s1, randomCount(), checkComplete)));
+        result.push(mapResult(
+            this.rollingSlot('s3', this.s1, randomCount(), checkComplete)));
     }
 
     render() {
@@ -155,7 +183,7 @@ export default class SlotMachine extends Component {
                     <div className="slot-machine _start-wrapper">
                         <div
                             className="btn _slot-machine-start"
-                            onClick={::this.startRolling}>{this.state.resultMessage ? ('you ' + this.state.resultMessage) : "start"}</div>
+                            onClick={::this.startRolling}>{this.state.resultMessage ? this.state.resultMessage : "start"}</div>
                     </div>
                 </div>
             </div>
