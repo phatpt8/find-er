@@ -3,23 +3,9 @@ import {
     Switch,
     Route
 } from 'react-router-dom';
-import AsyncComponent from '../../AsyncComponent';
+import AComponent from '../../AsyncComponent';
 import NavBar from '../nav-bar/index';
 import PushNotify from '../push-notify/index';
-
-const AComponent = (name) => () => {
-    const asyncLoader = () => () => (
-        new Promise(resolve => {
-            require.ensure([], () => {
-                resolve(import(`components/${name}/index`));
-            })
-        })
-    );
-
-    return (
-        <AsyncComponent loader={asyncLoader()} />
-    )
-};
 
 export default class Container extends Component {
     static PropTypes = {};

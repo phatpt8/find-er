@@ -27,7 +27,20 @@ export default class Homepage extends Component {
     render() {
         return (
             <div className="homepage _block">
-                <SlotMachine />
+                <div className="homepage _block-flex">
+                    <div className="homepage _flex-item">
+                        <div className="homepage _flex-item-wrapper">
+                            <a className="homepage _item-img">
+                                <img width="210" height="118" src=""/>
+                            </a>
+                        </div>
+                        <div className="homepage _flex-item-detail">
+                            <div className="homepage _flex-item-title">
+                                he he he
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         )
     }

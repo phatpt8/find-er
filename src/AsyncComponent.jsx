@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 
-export default class AsyncComponent extends Component {
+class AsyncComponent extends Component {
 
     static propTypes = {
         loader: PropTypes.func.isRequired
@@ -29,15 +29,30 @@ export default class AsyncComponent extends Component {
         }
 
         return (
-            <div className="spinner-wrapper">
-                <div className="spinner">
-                    <div className="rect1"/>
-                    <div className="rect2"/>
-                    <div className="rect3"/>
-                    <div className="rect4"/>
-                    <div className="rect5"/>
+            <div className="spinner-wrapper _block">
+                <div className="spinner-wrapper _spinner">
+                    <div className="_rect1"/>
+                    <div className="_rect2"/>
+                    <div className="_rect3"/>
+                    <div className="_rect4"/>
+                    <div className="_rect5"/>
                 </div>
             </div>
         );
     }
 }
+const AComponent = (name) => () => {
+    const asyncLoader = () => () => (
+        new Promise(resolve => {
+            require.ensure([], () => {
+                resolve(import(`components/${name}/index`));
+            })
+        })
+    );
+
+    return (
+        <AsyncComponent loader={asyncLoader()} />
+    )
+};
+
+export default AComponent
