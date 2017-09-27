@@ -4,15 +4,31 @@ export const initialState = {
     notifications: []
 };
 export default (state = initialState, action) => {
+    let _notifications = state.notifications;
     switch (action.type) {
         case SHOW_NOTIFY:
-            if (action.item) {
+            if (!action.item) return state;
+            const _id = Math.floor(Math.random() * 1992);
+            const close = () => ({
+                type: HIDE_NOTIFY,
+                _id
+            });
+            const _item = {
+                ...action.item,
+                _id,
+                close
+            };
+            _notifications.push(_item);
 
+            return { status: SHOW_NOTIFY, notifications: _notifications };
+        case HIDE_NOTIFY:
+            if (!action._id) {
+                _notifications.pop();
+            } else {
+                _notifications = _notifications.filter(n => n._id !== action._id);
             }
 
-            return { status: SHOW_NOTIFY };
-        case HIDE_NOTIFY:
-            return { status: HIDE_NOTIFY };
+            return { status: HIDE_NOTIFY, notifications: _notifications };
         default:
             return state;
     }

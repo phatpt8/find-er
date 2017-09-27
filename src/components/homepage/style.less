@@ -2,7 +2,7 @@
 
   &._block {
     display: flex;
-    padding-top: 10px;
+    padding: 25px 15px 0;
     align-items: center;
     justify-content: center;
   }
@@ -12,6 +12,7 @@
   }
   &._flex-item {
     width: 210px;
+    cursor: pointer;
     display: inline-block;
     position: relative;
     margin-right: 4px;
@@ -28,14 +29,24 @@
       transition: all 3s ease;
     }
 
-    &:hover:before {
-      background: linear-gradient(135deg, #F37055 0%, #EF4E7B 52%, #C55B95 77%, #A166AB 100%);
+    &:hover {
+      &:before {
+        background: linear-gradient(135deg, #F37055 0%, #EF4E7B 52%, #C55B95 77%, #A166AB 100%);
+      }
     }
   }
+  &._item-anchor {
+
+  }
+  &._item-img {
+    display: block;
+  }
   &._flex-item-detail {
-    
+    padding: 5px;
+    min-height: 20px;
   }
   &._flex-item-title {
-
+    font-size: 14px;
+    letter-spacing: 1.1px;
   }
 }

@@ -17,29 +17,46 @@ export default class Homepage extends Component {
 
     constructor(props) {
         super(props);
-        this.state = {};
+        this.state = {
+            apps: [
+                { title: 'Slot Machine' },
+                { title: 'Theme' },
+                { title: 'Third Project' },
+                { title: 'Forth Project' }
+            ]
+        };
     }
 
     componentDidMount() {
         this.props.init();
     }
 
+    renderItem(data, i) {
+
+        return (
+            <div key={i} className="homepage _flex-item">
+                <div className="homepage _flex-item-wrapper">
+                    <a href="/slot-machine" className="homepage _item-anchor">
+                        <img className="homepage _item-img" width="210" height="118" src={require('../../public/img/b3.jpeg')}/>
+                    </a>
+                </div>
+                <div className="homepage _flex-item-detail">
+                    <div className="homepage _flex-item-title">
+                        { data.title }
+                    </div>
+                </div>
+            </div>
+        )
+    }
+
     render() {
+
         return (
             <div className="homepage _block">
                 <div className="homepage _block-flex">
-                    <div className="homepage _flex-item">
-                        <div className="homepage _flex-item-wrapper">
-                            <a className="homepage _item-img">
-                                <img width="210" height="118" src=""/>
-                            </a>
-                        </div>
-                        <div className="homepage _flex-item-detail">
-                            <div className="homepage _flex-item-title">
-                                he he he
-                            </div>
-                        </div>
-                    </div>
+                    {
+                        this.state.apps.map(::this.renderItem)
+                    }
                 </div>
             </div>
         )

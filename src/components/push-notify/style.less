@@ -1,3 +1,60 @@
 .push-notify {
+    &._overlay {
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 2010;
+        display: flex;
+        position: fixed;
+        overflow: hidden;
 
+        &.-dark-bg {
+            background: rgba(0, 0, 0, 0.7);
+        }
+
+        &.-total {
+            z-index: 2030;
+        }
+    }
+    &._notifications {
+        z-index: 2040;
+        position: absolute;
+        top: 68px;
+
+        &.-center {
+            top: 50%;
+            left: 50%;
+            position: absolute;
+            transform: translateX(-50%) translateY(-50%);
+        }
+
+        &.-bounce {
+            animation-timing-function: cubic-bezier(0.3, 1.2, 0.8, 1.2);
+        }
+
+        &.-rise-left {
+            animation: rise-left .4s ease-in-out;
+        }
+    }
+}
+
+@keyframes rise-left {
+    from{
+        left:-100%;
+        opacity:0
+    }
+    to{
+        left: 0;
+        opacity:1
+    }
+}
+
+@keyframes rise-top {
+    0% {
+        transform: translateY(-100%);
+    }
+    100% {
+        transform: translateY(0);
+    }
 }

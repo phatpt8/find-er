@@ -123,9 +123,11 @@ module.exports = {
                 }
             }],
         }, {
-            test: /\.(jpg|png)$/,
+            test: /\.(jpeg|jpg|png|gif)$/,
             loader: 'file-loader',
             options: {
+                hash: 'sha512',
+                digest: 'hex',
                 name: 'images/[name].[ext]'
             },
         },{
