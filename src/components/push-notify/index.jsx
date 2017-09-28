@@ -70,7 +70,7 @@ export default class PushNotify extends Component {
                     'push-notify _overlay',
                     {
                         // '-dark-bg': notifications.length > 0,
-                        // '-hidden': notifications.length === 0
+                        '-hidden': notifications.length === 0
                     }
                 )}/>
                 {

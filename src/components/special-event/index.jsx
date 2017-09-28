@@ -73,7 +73,7 @@ export default class SpecialEvent extends Component {
             this.props.showNotify({
                 text: {
                     // title: 'Happy Birthday',
-                    content: '27/08/2017'
+                    content: '27/09/2017'
                 },
                 _pos: 'center',
                 _html: <PushNotifyHtml/>,
@@ -82,6 +82,8 @@ export default class SpecialEvent extends Component {
                 emoticon: 'love'
             });
         }, 13000);
+
+
     }
 
     render() {
