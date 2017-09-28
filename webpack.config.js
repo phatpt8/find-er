@@ -74,7 +74,7 @@ module.exports = {
                 fallback: 'style-loader',
                 use: [
                     {
-                        loader: 'css-loader?minimize!'
+                        loader: isDev ? 'css-loader' : 'css-loader?minimize!'
                     },
                     {
                         loader: 'less-loader'

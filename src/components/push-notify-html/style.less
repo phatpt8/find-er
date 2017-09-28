@@ -1,6 +1,7 @@
 .notify-html {
     &._block {
         padding: 10px 15px;
+        max-width: 300px;
         background: #FFF;
         box-shadow: 0 19px 38px 0 rgba(0, 0, 0, .3), 0 15px 12px 0 rgba(0, 0, 0, .22);
         margin-left: 10px;
@@ -17,9 +18,17 @@
         }
     }
     &._message {
-
+        font-size: 14px;
+    }
+    &._message-title {
+        font-weight: bold;
+        letter-spacing: .8px;
+        margin-bottom: 7px;
+    }
+    &._message-content {
+        font-weight: normal;
     }
     &._action {
-        margin-left: 10px;
+        margin-left: 15px;
     }
 }

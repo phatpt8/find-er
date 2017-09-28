@@ -1,10 +1,12 @@
 export const SHOW_NOTIFY = 'SHOW_NOTIFY';
 export const HIDE_NOTIFY = 'HIDE_NOTIFY';
+
 export const initialState = {
     notifications: []
 };
 export default (state = initialState, action) => {
     let _notifications = state.notifications;
+
     switch (action.type) {
         case SHOW_NOTIFY:
             if (!action.item) return state;

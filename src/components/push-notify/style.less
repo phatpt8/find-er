@@ -18,43 +18,106 @@
         }
     }
     &._notifications {
+        top: 68px;
+        //width: 100%;
         z-index: 2040;
         position: absolute;
-        top: 68px;
+
+        &.-horizontal-center {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        &.-vertical-center {
+            top: 50%;
+            transform: translateY(-50%);
+        }
 
         &.-center {
-            top: 50%;
-            left: 50%;
+            top: 50% !important;
+            left: 50% !important;
             position: absolute;
-            transform: translateX(-50%) translateY(-50%);
+            transform: translateX(-50%) translateY(-50%) scale(1);
+            animation: rise-center .2s ease-in-out;
+        }
+
+        &.-rise-left {
+            left: 0;
+            animation: rise-left .4s ease-in-out;
+        }
+
+        &.-rise-top {
+            top: 0;
+            animation: rise-top .4s ease-in-out;
+        }
+
+        &.-rise-right {
+            right: 0;
+            animation: rise-right .4s ease-in-out;
+        }
+
+        &.-rise-bottom {
+            bottom: 0;
+            animation: rise-bottom .4s ease-in-out;
         }
 
         &.-bounce {
             animation-timing-function: cubic-bezier(0.3, 1.2, 0.8, 1.2);
         }
+    }
+}
 
-        &.-rise-left {
-            animation: rise-left .4s ease-in-out;
-        }
+@keyframes rise-center {
+    from{
+        opacity: 0;
+        transform: translateX(-50%) translateY(-50%) scale(.8);
+    }
+    to{
+        opacity: 1;
+        transform: translateX(-50%) translateY(-50%) scale(1);
     }
 }
 
 @keyframes rise-left {
     from{
-        left:-100%;
-        opacity:0
+        left: -100%;
+        opacity: 0;
     }
     to{
         left: 0;
-        opacity:1
+        opacity:1;
     }
 }
 
 @keyframes rise-top {
-    0% {
-        transform: translateY(-100%);
+    from{
+        top: -100%;
+        opacity: 0;
     }
-    100% {
-        transform: translateY(0);
+    to{
+        top: 0;
+        opacity:1;
+    }
+}
+
+@keyframes rise-right {
+    from{
+        right: -100%;
+        opacity: 0;
+    }
+    to{
+        right: 0;
+        opacity: 1;
+    }
+}
+
+@keyframes rise-bottom {
+    from{
+        bottom: -100%;
+        opacity: 0;
+    }
+    to{
+        bottom: 0;
+        opacity: 1;
     }
 }

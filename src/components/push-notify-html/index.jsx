@@ -5,9 +5,11 @@ import {connect} from 'react-redux';
 import classNames from 'classnames';
 
 const stateToPropsBinding = (state, props) => ({});
-const dispatchToPropsBinding = (dispatch, ownPros) => ({});
+const dispatchToPropsBinding = (dispatch, ownProps) => ({
+    closeModal: () => dispatch(ownProps.close())
+});
 
-@connect(null, null)
+@connect(null, dispatchToPropsBinding)
 export default class PushNotifyHtml extends Component {
     static PropTypes = {};
     static DefaultTypes = {};
@@ -18,16 +20,19 @@ export default class PushNotifyHtml extends Component {
     }
 
     componentDidMount() {
-        console.log('==>',this.props);
-        setTimeout(() => this.props.dispatch(this.props.close()), 3000);
+        setTimeout(this.props.closeModal, 3000);
     }
 
     render() {
-        console.log(this.props);
         return (
             <div className="notify-html _block -flex-center">
                 <div className="notify-html _message">
-                    Hello there!
+                    <div className="notify-html _message-title">
+                        Hello there!
+                    </div>
+                    <div className="notify-html _message-content">
+                        This is my website
+                    </div>
                 </div>
                 <div className="notify-html _action">
                     <img width="40" height="40" src={require('../../public/gif/rabbit-smile.gif')}/>

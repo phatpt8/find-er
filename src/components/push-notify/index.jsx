@@ -32,15 +32,35 @@ export default class PushNotify extends Component {
     componentDidMount() {
         this.props.showNotify({
             _html: <PushNotifyHtml/>,
-            _pos: 'left'
-        })
+            _pos: 'right',
+            center: true
+        });
     }
 
     renderItem(item, i) {
+        const isCenter = item._pos === 'center';
+        const canHrzCenter = !isCenter &&
+            item.center &&
+            ['left', 'right'].indexOf(item._pos) === -1;
+        const canVtcCenter = !isCenter &&
+            item.center &&
+            ['top', 'bottom'].indexOf(item._pos) === -1;
+
         return (
             <div
                 key={i}
-                className="push-notify _notifications -rise-left"
+                className={classNames(
+                    'push-notify _notifications',
+                    {
+                        '-center': isCenter,
+                        '-rise-top': item._pos === 'top',
+                        '-rise-left': item._pos === 'left',
+                        '-rise-right': item._pos === 'right',
+                        '-rise-bottom': item._pos === 'bottom',
+                        '-horizontal-center': canHrzCenter,
+                        '-vertical-center': canVtcCenter,
+                    }
+                )}
             >
                 {React.cloneElement(
                     item._html,
