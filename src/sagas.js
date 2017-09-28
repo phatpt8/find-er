@@ -8,8 +8,9 @@ export function* incrementAsync(action) {
 }
 
 function* notifySaga(action) {
-    const state = yield select();
-    console.log('saga', action, state);
+    // console.log('saga', action);
+    // const state = yield select();
+    // console.log('saga', action, state);
 }
 
 export function* nightWatch() {

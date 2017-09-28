@@ -1,10 +1,8 @@
 require('./style.less');
 import React, {Component} from 'react';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import classNames from 'classnames';
-import {SHOW_NOTIFY, HIDE_NOTIFY} from 'actions/notify.reducer';
-import PushNotifyHtml from 'components/push-notify-html/index';
 
 const stateToPropsBinding = (state, props) => ({
     notify: state.notify
@@ -20,21 +18,10 @@ const dispatchToPropsBinding = (dispatch, ownPros) => ({
 export default class PushNotify extends Component {
     static PropTypes = {};
     static DefaultTypes = {};
-    // static ContextTypes = {
-    //     store: PropTypes.object
-    // };
 
     constructor(props) {
         super(props);
         this.state = {};
-    }
-
-    componentDidMount() {
-        this.props.showNotify({
-            _html: <PushNotifyHtml/>,
-            _pos: 'right',
-            center: true
-        });
     }
 
     renderItem(item, i) {
@@ -82,7 +69,8 @@ export default class PushNotify extends Component {
                 <div className={classNames(
                     'push-notify _overlay',
                     {
-                        '-dark-bg': notifications.length > 0
+                        // '-dark-bg': notifications.length > 0,
+                        // '-hidden': notifications.length === 0
                     }
                 )}/>
                 {

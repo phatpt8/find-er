@@ -1,5 +1,6 @@
 export const SHOW_NOTIFY = 'SHOW_NOTIFY';
 export const HIDE_NOTIFY = 'HIDE_NOTIFY';
+export const WIPEOUT_NOTIFY = 'WIPEOUT_NOTIFY';
 
 export const initialState = {
     notifications: []
@@ -22,7 +23,7 @@ export default (state = initialState, action) => {
             };
             _notifications.push(_item);
 
-            return { status: SHOW_NOTIFY, notifications: _notifications };
+            return { status: SHOW_NOTIFY, _id, notifications: _notifications };
         case HIDE_NOTIFY:
             if (!action._id) {
                 _notifications.pop();
@@ -31,6 +32,8 @@ export default (state = initialState, action) => {
             }
 
             return { status: HIDE_NOTIFY, notifications: _notifications };
+        case WIPEOUT_NOTIFY:
+            return { status: WIPEOUT_NOTIFY, _notifications: [] };
         default:
             return state;
     }

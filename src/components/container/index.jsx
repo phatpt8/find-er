@@ -36,6 +36,9 @@ export default class Container extends Component {
                         <Route
                             path="/theme"
                             component={AComponent('theme')}/>
+                        <Route
+                            path="/d29haW5p"
+                            component={AComponent('special-event')}/>
                     </Switch>
                 </div>
                 <PushNotify />
