@@ -3,12 +3,15 @@
   &._block {
     display: flex;
     padding: 25px 15px 0;
-    align-items: center;
-    justify-content: center;
   }
 
   &._block-flex {
     display: flex;
+
+    @media (max-width: 458px) {
+      flex-direction: column;
+      justify-content: flex-start;
+    }
   }
   &._flex-item {
     width: 210px;
