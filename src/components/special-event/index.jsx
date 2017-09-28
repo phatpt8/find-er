@@ -61,7 +61,7 @@ export default class SpecialEvent extends Component {
                     title: 'Happy Birthday',
                     content: 'Loi chuc muon tu anh!'
                 },
-                _pos: 'top',
+                _pos: 'left',
                 _html: <PushNotifyHtml/>,
                 center: true,
                 timeout: 3000,
