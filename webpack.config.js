@@ -74,7 +74,7 @@ module.exports = {
                 fallback: 'style-loader',
                 use: [
                     {
-                        loader: isDev ? 'css-loader' : 'css-loader?minimize!'
+                        loader: 'css-loader'
                     },
                     {
                         loader: 'less-loader'
@@ -93,41 +93,11 @@ module.exports = {
             test: /\.svg$/,
             use: 'svg-url-loader'
         }, {
-            test: /\.woff2$/,
-            use: [{
-                loader: 'url-loader',
-                options: {
-                    limit: 99990000,
-                    mimetype: 'application/font-woff2',
-                    name: 'public/fonts/[name].[ext]',
-                }
-            }],
-        }, {
-            test: /\.woff$/,
-            use: [{
-                loader: 'url-loader',
-                options: {
-                    limit: 99990000,
-                    mimetype: 'application/font-woff',
-                    name: 'public/fonts/[name].[ext]',
-                }
-            }],
-        }, {
-            test: /\.[ot]tf$/,
-            use: [{
-                loader: 'url-loader',
-                options: {
-                    limit: 99990000,
-                    mimetype: 'application/octet-stream',
-                    name: 'public/fonts/[name].[ext]',
-                }
-            }],
-        }, {
             test: /\.(jpeg|jpg|png|gif)$/,
             loader: 'file-loader',
             options: {
-                hash: 'sha512',
-                digest: 'hex',
+                // hash: 'sha512',
+                // digest: 'hex',
                 name: 'images/[name].[ext]'
             },
         },{
