@@ -1,7 +1,7 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 class AsyncComponent extends Component {
-
     static propTypes = {
         loader: PropTypes.func.isRequired
     };
