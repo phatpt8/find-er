@@ -12,7 +12,7 @@ const sourcePath = path.resolve(__dirname, 'src');
 const indexPath = sourcePath + '/index';
 
 function getEntries(entries) {
-    return env === 'production' ? entries : entries.concat([
+    return !isDev ? entries : entries.concat([
         'webpack-dev-server/client?http://0.0.0.0:8080',
         'webpack/hot/only-dev-server'
     ]);
@@ -38,7 +38,9 @@ module.exports = {
         colors: true,
         reasons: true
     },
-    entry: isDev ? getEntries([indexPath]) : indexPath,
+    entry: getEntries([
+        indexPath
+    ]),
     output: {
         path: distPath,
         filename: '[name].[hash].js',
