@@ -1,4 +1,4 @@
-require('./style.less');
+import './style.less';
 import React, {Component} from 'react';
 import classNames from 'classnames';
 import {connect} from 'react-redux';

@@ -111,7 +111,7 @@ module.exports = {
             options: {
                 name: 'videos/[name].[ext]'
             },
-        },
+        }
         ]
     },
     devServer: {

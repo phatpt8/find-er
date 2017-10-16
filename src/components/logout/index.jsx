@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-require('./style.less');
+import './style.less';
 export default class Logout extends Component {
     static PropTypes = {};
     static DefaultTypes = {};

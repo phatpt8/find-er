@@ -1,4 +1,4 @@
-require('./style.less');
+import './style.less';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { START_CONTAINER } from "actions/container.reducer";

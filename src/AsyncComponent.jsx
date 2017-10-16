@@ -45,7 +45,7 @@ const AComponent = (name) => () => {
     const asyncLoader = () => () => (
         new Promise(resolve => {
             require.ensure([], () => {
-                resolve(import(`components/${name}/index`));
+                resolve(System.import(`components/${name}/index`));
             })
         })
     );
