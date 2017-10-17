@@ -8,7 +8,7 @@
     "start": "webpack --config webpack.config.js",
     "dev": "webpack-dev-server --inline --color --hot",
     "build": "rimraf dist && NODE_ENV=production webpack --progress --profile --bail",
-    "start:server": "NODE_ENV=production && node ./server/server"
+    "start:server": "NODE_ENV=production node ./src/server/server"
   },
   "author": "qtp",
   "license": "ISC",
@@ -45,7 +45,6 @@
     "babel-preset-es2015": "^6.18.0",
     "babel-preset-react": "^6.16.0",
     "babel-preset-stage-0": "^6.0.15",
-    "babel-register": "^6.26.0",
     "body-parser": "^1.17.1",
     "css-loader": "^0.28.4",
     "express": "^4.15.4",

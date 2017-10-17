@@ -135,3 +135,75 @@ module.exports = {
         // new BundleAnalyzerPlugin()
     ])
 };
+
+const serverConfig = {
+    entry: './src/server/server.js',
+    target: 'node',
+    output: {
+        path: distPath,
+        filename: 'server.js',
+        libraryTarget: 'commonjs2'
+    },
+    resolve: {
+        modules: [
+            './src',
+            'node_modules',
+        ],
+        alias: {
+            main: 'src',
+            components: sourcePath + '/components',
+            actions: sourcePath + '/actions'
+        },
+        extensions: ['.js', '.jsx', '.css', '.less', '.svg', '.html', '.ico']
+    },
+    devtool: 'cheap-module-source-map',
+    module: {
+        rules: [{
+            test: /\.(js|jsx)$/,
+            exclude: /node_modules/,
+            use: [{
+                loader: 'babel-loader',
+                options: {
+                    presets: ['es2015', 'stage-0', 'react'],
+                    plugins: [
+                        'transform-react-constant-elements',
+                        'transform-react-inline-elements',
+                        'transform-runtime',
+                        'transform-decorators-legacy'
+                    ]
+                }
+            }]
+        }, {
+            test: /\.(less|css)$/,
+            use: [{
+                loader: 'css-loader/locals',
+                options: { importLoaders: 1 }
+            },
+                {
+                    loader: 'less-loader'
+                },
+                {
+                    loader: 'postcss-loader',
+                    options: {
+                        plugins: () => [ require('autoprefixer')({
+                            browsers: [ 'last 4 version' ]
+                        }) ]
+                    }
+                }]
+        }, {
+            test: [/\.svg$/, /\.gif$/, /\.jpe?g$/, /\.png$/, ],
+            loader: 'file-loader',
+            options: {
+                name: 'images/[name].[ext]',
+                emit: false
+            }
+        }]
+    },
+    plugins: [
+        function () {
+            this.plugin('done', function (stats) {
+                console.log('=>stats', stats.hash);
+            })
+        }
+    ]
+};
